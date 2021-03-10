@@ -22,7 +22,7 @@ namespace CSProject
         }
         public void GeneratePaySlip(List<Staff> myStaff)
         {
-            var path = "";
+            string path;
             foreach (Staff f in myStaff)
             {
                 path = f.NameOfStaff + ".txt";
@@ -53,22 +53,25 @@ namespace CSProject
         {
             //staff that worked less than 10h in a month
             var result =
-                from staff in myStaff
-                where staff.HoursWorked < 10
-                orderby staff.NameOfStaff ascending
-                select new {staff.NameOfStaff, staff.HoursWorked};
+                from f in myStaff
+                where f.HoursWorked < 10
+                orderby f.NameOfStaff ascending
+                select new {f.NameOfStaff, f.HoursWorked};
 
             
-                var path = "summary.txt";
-                using var sw = new StreamWriter(path);
-                sw.WriteLine("Staff with less than 10 working hours");
-                sw.WriteLine("");
-                foreach (var r in result)
+                string path = "summary.txt";
+                using (StreamWriter sw = new StreamWriter(path))
                 {
-                    sw.WriteLine("Name of Staff: {0}, Hours Worked: {1}", r.NameOfStaff, r.HoursWorked);
-                    sw.WriteLine("Name of Staff: {0}, Hours Worked: {1}", r.NameOfStaff, r.HoursWorked);
-                }
-                sw.Close();
+                    sw.WriteLine("Staff with less than 10 working hours");
+                    sw.WriteLine("");
+                    foreach (var f in result)
+                    {
+                        sw.WriteLine("Name of Staff: {0}, Hours Worked: {1}", f.NameOfStaff, f.HoursWorked);
+                        sw.WriteLine("Name of Staff: {0}, Hours Worked: {1}", f.NameOfStaff, f.HoursWorked);
+                    }
+                    sw.Close();
+
+            }
         }
 
         public override string ToString()
