@@ -1,4 +1,6 @@
-﻿namespace CSProject
+﻿using System;
+
+namespace CSProject
 {
     class Staff
     {
@@ -16,7 +18,10 @@
 
         public int HoursWorked
         {
-            get { return hWorked; }
+            get
+            {
+                return hWorked;
+            }
             set
             {
                 if (HoursWorked > 0)
@@ -33,6 +38,15 @@
         public virtual void CalculatePay()
         {
             //calculate pay of each staff
+            Console.WriteLine("Calculating Pay...");
+            BasicPay = hWorked * hourlyRate;
+            TotalPay = BasicPay;
+        }
+
+        public override string ToString()
+        {
+            return "\nNameOfStaff = " + NameOfStaff + "\nhWorked = " + hWorked + "\nhourlyRate = " + hourlyRate + "\nBasicPay = " +
+                   BasicPay + "\nTotalPay = " + TotalPay;
         }
     }
 }
