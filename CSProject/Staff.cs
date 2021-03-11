@@ -4,13 +4,7 @@ namespace CSProject
 {
     class Staff
     {
-        public Staff(string name, float rate)
-        {
-            NameOfStaff = name;
-            hourlyRate = rate;
-        }
-
-        private float hourlyRate;
+       private float hourlyRate;
         private int hWorked;
         public float TotalPay { get; protected set; }
         public float BasicPay { get; private set; }   
@@ -33,6 +27,12 @@ namespace CSProject
                     hWorked = 0;
                 }
             }
+        }
+
+        public Staff(string name, float rate)
+        {
+            NameOfStaff = name;
+            hourlyRate = rate;
         }
 
         public virtual void CalculatePay()

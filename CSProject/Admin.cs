@@ -13,10 +13,7 @@
         {
             base.CalculatePay();
             if (HoursWorked > 160)
-            {
-                Overtime = overtimeRate + (HoursWorked - 160);
-                //TotalPay = BasicPay + Overtime;
-            }
+                Overtime = overtimeRate * (HoursWorked - 160);
         }
         public override string ToString()
         {

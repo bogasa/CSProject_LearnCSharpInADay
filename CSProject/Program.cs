@@ -45,7 +45,7 @@ namespace CSProject
 
             myStaff = fr.ReadFile();
 
-            for (int i = 0; i < myStaff.Count; i++)
+            for (var i = 0; i < myStaff.Count; i++)
             {
                 try
                 {

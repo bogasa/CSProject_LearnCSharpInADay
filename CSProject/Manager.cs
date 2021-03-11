@@ -2,7 +2,7 @@
 {
     class Manager : Staff
     {
-        private const float managerHourlyRate = 50;
+        private const float managerHourlyRate = 50f;
 
         public Manager(string name) : base(name, managerHourlyRate) { }
 
@@ -13,9 +13,7 @@
             base.CalculatePay();
             Allowance = 1000;
             if (HoursWorked > 160)
-            {
                 TotalPay = BasicPay + Allowance;
-            }
         }
 
         public override string ToString()
