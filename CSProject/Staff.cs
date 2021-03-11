@@ -18,7 +18,7 @@ namespace CSProject
             }
             set
             {
-                if (HoursWorked > 0)
+                if (value > 0)
                 {
                     hWorked = value;
                 }
